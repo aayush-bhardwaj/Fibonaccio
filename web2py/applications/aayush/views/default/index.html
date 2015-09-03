@@ -1,0 +1,45 @@
+{{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
+{{extend 'layout.html'}}
+
+{{block header}}
+    <header class="container-fluid background">
+      <div class="jumbotron text-center">
+        {{if response.title:}}
+        <h1>Learner Mentor Collaboration
+          <small>{{=response.subtitle or ''}}</small></h1>
+        {{pass}}
+      </div>
+    </header>
+{{end}}
+
+{{if 'message' in globals():}}
+<h2>Welcome to Fibonaccio's</h2>
+<p class="lead">{{=T('What do we do ?')}}</p>
+<ol>
+  <h4>Its a group of industry experts working in various professional domains (open source and academics only); these domains have a never-seen-before destitution of skilled work force. We pick skilled professionals from these domains to form a teaching group. We learn together as a team and focus on each participant's career development using a data analytics algorithm.
+<br><p>Our mission is to provide quality professionals to the industry; and from the industry. And we mean it.</h4>
+
+</ol>
+{{elif 'content' in globals():}}
+{{=content}}
+{{else:}}
+{{=BEAUTIFY(response._vars)}}
+{{pass}}
+
+{{block right_sidebar}}
+<div class="panel panel-info">
+  <div class="panel-heading"><h3 class="panel-title"><a class="btn-block"
+      href="{{=URL('admin','default','index')}}">
+      <i class="glyphicon glyphicon-cog"></i>
+      {{=T("admin")}}
+    </a></h3></div>
+  <div class="panel-body">
+    {{=T("Don't know what to do?")}}
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item">{{=A(T("Online examples"), _href=URL('examples','default','index'))}}</li>
+    <li class="list-group-item"><a href="http://web2py.com">web2py.com</a></li>
+    <li class="list-group-item"><a href="http://web2py.com/book">{{=T('Documentation')}}</a></li>
+  </ul>
+</div>
+{{end}}
