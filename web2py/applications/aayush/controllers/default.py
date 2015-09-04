@@ -19,6 +19,14 @@ def index():
     #response.flash = T("Hello World")
     return dict(message=T('Welcome to web2py!'))
 
+def About():
+    #response.flash = T("Hello World")
+    return dict(message=T('Welcome to web2py!'))
+
+def what_we_do():
+    #response.flash = T("Hello World")
+    return dict(message=T('Welcome to web2py!'))
+
 def blog_spot():
     """
     example action using the internationalization operator T and flash
